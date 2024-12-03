@@ -4,7 +4,7 @@ function App() {
         <Container>
             <Row>
                 <Col md={{ offset: 3, span: 6 }}>
-                    <Enter your CIS 476 task />
+                    <TodoListCard />
                 </Col>
             </Row>
         </Container>
@@ -54,8 +54,6 @@ function TodoListCard() {
             <AddItemForm onNewItem={onNewItem} />
             {items.length === 0 && (
                 <p className="text-center">No items yet! Add one above!</p>
-
-             <h2> Rodnesia Goodloe's tasks</h2>
             )}
             {items.map(item => (
                 <ItemDisplay
@@ -120,7 +118,7 @@ function ItemDisplay({ item, onItemUpdate, onItemRemoval }) {
     const { Container, Row, Col, Button } = ReactBootstrap;
 
     const toggleCompletion = () => {
-        fetch(/items/${item.id}, {
+        fetch(`/items/${item.id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 name: item.name,
@@ -133,13 +131,13 @@ function ItemDisplay({ item, onItemUpdate, onItemRemoval }) {
     };
 
     const removeItem = () => {
-        fetch(/items/${item.id}, { method: 'DELETE' }).then(() =>
+        fetch(`/items/${item.id}`, { method: 'DELETE' }).then(() =>
             onItemRemoval(item),
         );
     };
 
     return (
-        <Container fluid className={item ${item.completed && 'completed'}}>
+        <Container fluid className={`item ${item.completed && 'completed'}`}>
             <Row>
                 <Col xs={1} className="text-center">
                     <Button
@@ -154,9 +152,9 @@ function ItemDisplay({ item, onItemUpdate, onItemRemoval }) {
                         }
                     >
                         <i
-                            className={far ${
+                            className={`far ${
                                 item.completed ? 'fa-check-square' : 'fa-square'
-                            }}
+                            }`}
                         />
                     </Button>
                 </Col>
