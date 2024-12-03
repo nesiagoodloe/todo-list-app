@@ -52,12 +52,10 @@ function TodoListCard() {
 
     return (
         <React.Fragment>
+            <h2>Rodnesia Goodloe's tasks</h2>
             <AddItemForm onNewItem={onNewItem} />
             {items.length === 0 && (
-                <React.Fragment>
-                    <h2>Rodnesia Goodloe's tasks</h2>
-                    <p className="text-center">No items yet! Add one above!</p>
-                </React.Fragment>
+                <p className="text-center">No items yet! Add one above!</p>
             )}
             {items.map(item => (
                 <ItemDisplay
