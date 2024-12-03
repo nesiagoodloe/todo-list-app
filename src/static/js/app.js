@@ -4,7 +4,7 @@ function App() {
         <Container>
             <Row>
                 <Col md={{ offset: 3, span: 6 }}>
-                    <TodoListCard />
+                    <nter your CIS 476 task/>
                 </Col>
             </Row>
         </Container>
@@ -54,6 +54,8 @@ function TodoListCard() {
             <AddItemForm onNewItem={onNewItem} />
             {items.length === 0 && (
                 <p className="text-center">No items yet! Add one above!</p>
+
+             <h2>"Rodnesia Goodloe's tasks"</h2>
             )}
             {items.map(item => (
                 <ItemDisplay
